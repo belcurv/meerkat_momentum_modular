@@ -82,8 +82,6 @@ var Focus = (function () {
 	}
     
     
-    
-    
     // render DOM
 	function render() {
 
