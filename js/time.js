@@ -1,7 +1,8 @@
 /* jshint esversion:6 */
-/* globals $, console, LS */
+/* globals $, LS */
 
-var time = (function($) {
+var Time = (function() {
+    
     
     // init vars
     var tehDate,
@@ -12,7 +13,9 @@ var time = (function($) {
             'smarty pants',
             'good looking',
             'classy',
-            'human shield'
+            'human shield',
+            'meat bag',
+            'Dave'
         ],
         dummy = selectName();
     
@@ -31,12 +34,14 @@ var time = (function($) {
             initialHour = getHours(createDate()),
             userName;
         
+        // set userName
         if (LS.getData('momentum-settings')) {
             userName = LS.getData('momentum-settings').userName;
         } else {
             userName = dummy;
         }
         
+        // set timeOfDay
         if (initialHour < 12) {
             timeOfDay = "Morning";
         } else if (initialHour >= 12 && initialHour < 17) {
@@ -51,11 +56,8 @@ var time = (function($) {
 
     // get clock format from LS or defaults
     function checkStandard() {
-        if (LS.getData('momentum-settings')) {
-            return LS.getData('momentum-settings').clockFormat;
-        } else {
-            return true;
-        }
+        var std = LS.getData('momentum-settings');
+        return (std) ? std.clockFormat : true;
     }
     
 
@@ -124,7 +126,7 @@ var time = (function($) {
     }
     
     
-    // call everything
+    // public init method
     function init() {
         
         createDate();
@@ -143,12 +145,4 @@ var time = (function($) {
         init: init
     };
     
-}(jQuery));
-
-
-// fire on page load
-time.init();
-
-
-// fire every 20 seconds
-setInterval(time.init, 20000);
+}());
