@@ -43,14 +43,15 @@ var Time = (function() {
         
         // set timeOfDay
         if (initialHour < 12) {
-            timeOfDay = "Morning";
+            timeOfDay = "morning";
         } else if (initialHour >= 12 && initialHour < 17) {
-            timeOfDay = "Afternoon";
+            timeOfDay = "afternoon";
         } else {
-            timeOfDay = "Evening";
+            timeOfDay = "evening";
         }
 
-        return `Good ${timeOfDay}, ${userName}.`;
+//        return `Good ${timeOfDay}, ${userName}.`;
+        return 'Good ' + timeOfDay + ', ' + userName + '.';
     }
     
 
