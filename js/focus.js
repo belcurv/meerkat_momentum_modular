@@ -29,7 +29,7 @@ var Focus = (function () {
     
 	
     // handle create daily focus event
-	function createDaily(event) {
+    function createDaily(event) {
         
         var objectStorage,
             $input = $(event.target),
